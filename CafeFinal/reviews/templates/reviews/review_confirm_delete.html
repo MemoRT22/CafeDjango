@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Crear review{% endblock %}
+{% block content %}
+{% include 'reviews/includes/menu_reviews.html'%}
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto text-light">
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>
+                    Estas seguro de eliminar la review"{{object.title}}"
+                </p>
+                <input type="submit" class="btn btn-danger" value="Confirmar" />
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

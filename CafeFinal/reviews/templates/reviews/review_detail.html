@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block content %}
+{% include 'reviews/includes/menu_reviews.html' %}
+
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto text-light">
+        <h2 class="section-heading mb-4">{{review.title}}</h2>
+        <div>
+          {{review.content|safe}}
+          {% if request.user.is_staff %}
+          <p>
+            <a class="btn btn-info" href="{% url 'reviews:update' review.id %}" role="button">Editar</a>
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
